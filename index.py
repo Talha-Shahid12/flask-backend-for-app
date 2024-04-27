@@ -1,31 +1,15 @@
-from flask import Flask
-
+from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
+@app.route('/calculate_sum', methods=['POST'])
+def calculate_sum():
+    data = request.json
+    num1 = int(data['num1'])
+    num2 = int(data['num2'])
+    result = num1 + num2
+    return jsonify({'result': result})
 
-@app.route('/')
-def home():
-    return 'Home Page Route'
-
-
-@app.route('/about')
-def about():
-    return 'About Page Route'
-
-
-@app.route('/portfolio')
-def portfolio():
-    return 'Portfolio Page Route'
-
-
-@app.route('/contact')
-def contact():
-    return 'Contact Page Route'
-
-
-@app.route('/api')
-def api():
-    with open('data.json', mode='r') as my_file:
-        text = my_file.read()
-        return text
+@app.route('/', methods = ['GET'])
+def done():
+    return 'Hello world'
