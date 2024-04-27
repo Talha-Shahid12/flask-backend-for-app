@@ -14,3 +14,5 @@ def calculate_sum():
     result = number1 + number2
     return jsonify({'result': result}), 200
 
+if __name__ == '__main__':
+    app.run(debug=True)
