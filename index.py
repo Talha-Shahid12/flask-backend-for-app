@@ -12,7 +12,7 @@ def calculate_sum():
 
 @app.route('/', methods = ['GET'])
 def done():
-    return 'Hello world'
+    return 'Hello'
 
 if __name__ == '__main__':
     app.run(debug=True, port=8000)
